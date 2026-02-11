@@ -1,6 +1,7 @@
 ---
 import "../css/main.css";
 import Button from "../components/Button.astro";
+import Navbar from "../components/Navbar.astro"
 ---
 
 <html lang="da">
@@ -19,17 +20,11 @@ import Button from "../components/Button.astro";
     <title>Astro</title>
   </head>
   <body>
+    <!------------------------------ Julie indsæt header her --------------------------------->
     <header>Her er header</header>
-    <nav>
-      <a href="/">Forside</a>
-      <a href="/">Rejsekalender</a>
-      <a href="/">Højskoleophold</a>
-      <a href="/">Sommerhøjskole</a>
-      <a href="/">Priser</a>
-      <a href="/">Om os</a>
-      <a href="/">Kontakt os</a>
-      <Button title="Bestil ophold" variant="secondary" />
-    </nav>
+    <!-- Skal indsættes på samme måde som Navbar er nedunder -->
+    <Navbar />
+
 
     <slot />
     <footer>Her er footer</footer>
