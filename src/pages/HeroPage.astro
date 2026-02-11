@@ -1,20 +1,9 @@
 ---
 import Layouts from "../layouts/Layouts.astro";
-import Button from "../components/Button.astro";
 import Hero from "../components/Hero.astro";
 ---
 
 <!-- giver ikke mening at min import Button from "...Button" melder fejl og skal skrives med button lille B for at acceptere? Spørger underviser i morgen eller torsdag -->
 <Layouts>
-  <Hero>
-    <div class="image_contaainer">
-      <h1>Dit højskoleeventyr starter her</h1>
-      <p>
-        HØJSKOLENDK er en dansk højskole for unge i alderen 18-26 år. Vi brænder
-        for oplevelser, fællesskabet og det gode eventyr.
-      </p>
-      <Button title="Se rejsekalender" variant="primary" />
-      <Button title="Infomøder" variant="secondary" />
-    </div>
-  </Hero>
+  <Hero />
 </Layouts>
