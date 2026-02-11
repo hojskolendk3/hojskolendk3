@@ -1,29 +1,29 @@
 ---
-const {title, variant} = Astro.props;
+const { title, variant } = Astro.props;
 ---
 
 <button class={variant}>{title}</button>
 <!-- indsætter ikon på knapper senere -->
 <style>
-    button {
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-         font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 16px;
-    }
+  button {
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+  }
 
-    .primary {
-        background-color: #CE5501;
-        color: white;
-    }
+  .primary {
+    background-color: #ce5501;
+    color: white;
+  }
 
-    .secondary {
-        background-color: white;
-        color: black;
-    }
+  .secondary {
+    background-color: white;
+    color: black;
+  }
 </style>
