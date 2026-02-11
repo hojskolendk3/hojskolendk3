@@ -1,13 +1,98 @@
 ---
-const { title, variant } = Astro.props;
+const { headline, byline } = Astro.props;
+import Button from "../components/Button.astro";
 ---
 
-<div class="image_container"></div>
+<div class="image_container">
+  <article class="copy_container">
+    <h1 class="hero_headline">
+      {headline}
+      Dit højskoleeventyr starter her
+    </h1>
+    <p class="hero_byline">
+      {byline}
+      HØJSKOLENDK er en dansk højskole for unge i alderen <span
+        class="highlight">18-26 år</span
+      >. Vi brænder for oplevelser, fællesskabet og det gode eventyr.
+    </p>
+    <div class="button_container">
+      <Button title="Se rejsekalender" variant="primary" />
+      <Button title="Infomøder" variant="secondary" />
+    </div>
+  </article>
+</div>
 
 <style>
   .image_container {
-    background-color: brown;
     width: 90rem;
     height: 45.9375rem;
+    background:
+      radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image_container h1 {
+    margin: 0;
+  }
+
+  .image_container p {
+    margin: 0;
+  }
+
+  .copy_container {
+    padding-top: 5.75rem;
+    width: 55.375rem;
+    height: 17.625rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .hero_headline {
+    color: #fff;
+    text-align: center;
+    font-family: "Dela Gothic One";
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 4rem */
+  }
+
+  .hero_byline {
+    width: 38rem;
+    color: #fff;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 1.575rem */
+    letter-spacing: -0.0225rem;
+  }
+
+  .button_container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 24.5rem;
+    height: 3.5rem;
+  }
+
+  .highlight {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    letter-spacing: -0.0225rem;
   }
 </style>
