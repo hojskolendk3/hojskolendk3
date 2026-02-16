@@ -1,14 +1,11 @@
 ---
-const { headline, byline } = Astro.props;
+const { headline, byline, bgimage } = Astro.props;
 import Button from "../components/Button.astro";
 ---
 
-<div class="image_container">
+<div style=`background-image: url(${bgimage});` class="image_container">
   <article class="copy_container">
-    <h1 class="hero_headline">
-      {headline}
-      Dit højskoleeventyr starter her
-    </h1>
+    <h1 class="hero_headline">{headline}</h1>
     <p class="hero_byline">
       {byline}
       HØJSKOLENDK er en dansk højskole for unge i alderen <span
