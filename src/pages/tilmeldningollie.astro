@@ -1,0 +1,39 @@
+---
+import Layouts from "../layouts/Layouts.astro";
+import Button from "../components/Button.astro";
+import Form from "../components/Form.astro";
+import Cards from "../components/Cards.astro";
+import "../css/card.css";
+---
+
+<Layouts>
+  <section id="form_section">
+    <Form headline="Tilmeld dig et infomøde her" bgimage="img/sunset.jpg" />
+  </section>
+
+  <section class="dates_and_destinations_container">
+    <article class="dates_container">
+      <h3>ONLINE INFOMØDE</h3>
+      <h2>Kom til infomøde</h2>
+      <p>
+        Kig forbi et af vores hyggelige online-infomøder – vi glæder os til at
+        møde dig!
+      </p>
+    </article>
+    <Cards cardstitle="Se vores rejser her" />
+  </section>
+</Layouts>
+
+<!---------- Har udkommenteret og ikke slettet nedenstående, just in case vi skal bruge det igen //C ---------->
+
+<!-- <h1>Hej Astro-Layout</h1>
+  <h2>Jeg er en subheader</h2> -->
+<!-- indsætter ikon på knapper senere -->
+
+<!-- <Button title="Se rejsekalender" variant="primary" />
+  <Button title="Infomøder" variant="secondary" />
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis amet modi
+    ipsum deleniti! Ipsum nam odit eos officiis sed sapiente blanditiis ab nemo
+    totam sint nisi expedita, minus, reprehenderit ducimus?
+  </p> -->
