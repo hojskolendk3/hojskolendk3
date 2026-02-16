@@ -1,0 +1,279 @@
+---
+const { headline, bgimage } = Astro.props;
+import Button from "../components/Button.astro";
+---
+
+<div style=`background-image: url(${bgimage});` class="image_container">
+  <article class="copy_container">
+    <h1 class="hero_headline">{headline}</h1>
+    <article class="form_container">
+      <form id="tilmelding" aria-label="form">
+        <div class="form-column">
+          <div aria-describedby="moede-dato">
+            <div class="form-group">
+              <label for="Dato">Hvornår vil du til møde?</label>
+              <input
+                aria-describedby="fejlbesked"
+                type="datetime-local"
+                id="dato"
+                name="dato"
+                required
+              />
+              <p id="fejlbesked" class="error-message">
+                Udfyld venligst dette felt
+              </p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="efternavn">Efternavn</label>
+            <input
+              aria-describedby="fejlbesked"
+              type="text"
+              id="efternavn"
+              name="efternavn"
+              required
+            />
+            <p id="fejlbesked" class="error-message">
+              Udfyld venligst dette felt
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="Fornavn">Fornavn</label>
+            <input
+              aria-describedby="fejlbesked"
+              type="text"
+              id="Fornavn"
+              name="Fornavn"
+              required
+            />
+            <p id="fejlbesked" class="error-message">
+              Udfyld venligst dette felt
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              aria-describedby="fejlbesked"
+              type="email"
+              id="email"
+              name="email"
+            />
+            <!-- <p id="fejlbesked" class="error-message">
+            Ugyldigt input. En mailadresse skal bruge "@"
+          </p> -->
+          </div>
+
+          <div class="form-group">
+            <label for="telefonnummer">Telefonnummer</label>
+            <input
+              aria-describedby="fejlbesked"
+              type="number"
+              id="Telefonnummer"
+              name="Telefonnummer"
+            />
+            <!-- <p id="fejlbesked" class="error-message">
+            Ugyldigt input. En mailadresse skal bruge "@"
+          </p> -->
+          </div>
+        </div>
+        <div class="form-column">
+          <details>
+            <summary>Hvilken tur er du interesseret i?</summary>
+            <ul>
+              <li>
+                <label
+                  ><input
+                    type="checkbox"
+                    name="rejse"
+                    value="rejse1"
+                  />rejse1</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input
+                    type="checkbox"
+                    name="rejse"
+                    value="rejse2"
+                  />rejse2</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input
+                    type="checkbox"
+                    name="rejse"
+                    value="rejse3"
+                  />rejse3</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input
+                    type="checkbox"
+                    name="rejse"
+                    value="rejse4"
+                  />rejse4</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input
+                    type="checkbox"
+                    name="rejse"
+                    value="rejse5"
+                  />rejse5</label
+                >
+              </li>
+            </ul>
+          </details>
+
+          <p aria-describedby="accepter-betingelser">Acceptér betingelser</p>
+
+          <div class="form-group">
+            <label for="accept-checkbox">
+              <input
+                type="checkbox"
+                id="accept-checkbox"
+                name="accept-checkbox"
+              /> Ved tilmelding giver du os lov til at kontakte dig med påmindelser
+              og opfølgning.</label
+            >
+          </div>
+
+          <p aria-describedby="accepter-betingelser">
+            For at kunne tilmelde dig er vi nødt til at gemme og behandle dine
+            personlige oplysninger. Hvis du samtykker til, at vi må gemme dine
+            personlige oplysninger til dette formål, skal du sætte kryds i
+            afkrydsningsfeltet nedenfor.
+          </p>
+
+          <div class="form-group">
+            <label for="privatliv-checkbox">
+              <input
+                type="checkbox"
+                id="privatliv-checkbox"
+                name="privatliv-checkbox"
+              /> Jeg har læst jeres privatlivspolitik og generelle bestemmelser og
+              er indforstået med begge.</label
+            >
+          </div>
+          <button>Indsend</button>
+        </div>
+      </form>
+    </article>
+  </article>
+</div>
+
+<style>
+  .image_container {
+    width: 90rem;
+    height: 45.9375rem;
+    background:
+      radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image_container h1 {
+    margin: 0;
+  }
+
+  .image_container p {
+    margin: 0;
+  }
+
+  .copy_container {
+    padding-top: 5.75rem;
+    width: 55.375rem;
+    height: 17.625rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .hero_headline {
+    color: #fff;
+    text-align: center;
+    font-family: "Dela Gothic One";
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 4rem */
+  }
+
+  .hero_byline {
+    width: 38rem;
+    color: #fff;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 1.575rem */
+    letter-spacing: -0.0225rem;
+  }
+
+  .button_container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 24.5rem;
+    height: 3.5rem;
+  }
+
+  .highlight {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    letter-spacing: -0.0225rem;
+  }
+
+  .dates_and_destinations_container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .form_container {
+    width: 43.25rem;
+    height: 24.5rem;
+    background-color: rgba(0, 0, 0, 0.227);
+    padding: 2rem;
+    backdrop-filter: blur(2px);
+  }
+
+  #tilmelding {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .form-group label,
+  details summary,
+  details,
+  p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+  }
+</style>
