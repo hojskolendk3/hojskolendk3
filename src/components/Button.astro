@@ -1,8 +1,8 @@
 ---
-const { title, variant } = Astro.props;
+const { title, variant, class: className } = Astro.props;
 ---
 
-<button class={variant}>{title}</button>
+<button class={`${variant} ${className ?? ""}`.trim()}>{title}</button>
 
 <style>
   button {

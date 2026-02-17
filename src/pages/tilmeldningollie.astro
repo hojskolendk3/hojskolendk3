@@ -9,31 +9,45 @@ import "../css/card.css";
 <Layouts>
   <section id="form_section">
     <Form headline="Tilmeld dig et infomøde her" bgimage="img/sunset.jpg" />
+
+    <section class="cardsgrid2">
+      <div class="card_picture">
+        <Cards cardstitle="Se vores rejser her" />
+      </div>
+
+      <div class="card_list">
+        <Cards
+          badge1="ONLINE INFOMØDE"
+          headline2="Kom til infomøde"
+          badge2="Kig forbi et af vores hyggelige online-infomøder – vi glæder os til at
+      møde dig!"
+        />
+      </div>
+    </section>
+
+    <section class="cardsgrid2">
+      <div class="card_list">
+        <Cards
+          badge1="Godt at vide"
+          headline2="Fem typiske bekymringer"
+          badge2="og hvordan vores elever har håndteret dem"
+        />
+      </div>
+      <div class="card_picture"><Cards cardstitle="Fællesskabsbillede" /></div>
+    </section>
   </section>
 
-  <section class="dates_and_destinations_container">
-    <article class="dates_container">
-      <h3>ONLINE INFOMØDE</h3>
-      <h2>Kom til infomøde</h2>
-      <p>
-        Kig forbi et af vores hyggelige online-infomøder – vi glæder os til at
-        møde dig!
-      </p>
-    </article>
-    <Cards cardstitle="Se vores rejser her" />
-  </section>
-</Layouts>
+  <!---------- Har udkommenteret og ikke slettet nedenstående, just in case vi skal bruge det igen //C ---------->
 
-<!---------- Har udkommenteret og ikke slettet nedenstående, just in case vi skal bruge det igen //C ---------->
-
-<!-- <h1>Hej Astro-Layout</h1>
+  <!-- <h1>Hej Astro-Layout</h1>
   <h2>Jeg er en subheader</h2> -->
-<!-- indsætter ikon på knapper senere -->
+  <!-- indsætter ikon på knapper senere -->
 
-<!-- <Button title="Se rejsekalender" variant="primary" />
+  <!-- <Button title="Se rejsekalender" variant="primary" />
   <Button title="Infomøder" variant="secondary" />
   <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis amet modi
     ipsum deleniti! Ipsum nam odit eos officiis sed sapiente blanditiis ab nemo
     totam sint nisi expedita, minus, reprehenderit ducimus?
   </p> -->
+</Layouts>
