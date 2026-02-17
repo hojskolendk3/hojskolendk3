@@ -312,6 +312,56 @@ import Button from "../components/Button.astro";
   background: rgb(255, 255, 255);
 }
 
+  /* Keep the details dropdown from pushing layout below */
+  details {
+    position: relative;
+    display: inline-block;
+  }
+
+  details > summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  details[open] > ul {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    width: max-content;
+    min-width: 12rem;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    z-index: 2;
+  }
+
+  details[open] summary ~ * {
+    animation: fadeSlide 140ms ease-out;
+  }
+
+  @keyframes fadeSlide {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
 
 
 </style>
