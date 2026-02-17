@@ -131,7 +131,7 @@ import Button from "../components/Button.astro";
             </ul>
           </details>
 
-          <p aria-describedby="accepter-betingelser">Acceptér betingelser</p>
+          <p class="accept-header" aria-describedby="accepter-betingelser">Acceptér betingelser</p>
 
           <div class="form-group">
             <label for="accept-checkbox">
@@ -144,7 +144,7 @@ import Button from "../components/Button.astro";
             >
           </div>
 
-          <p aria-describedby="accepter-betingelser">
+          <p class="consent-text" aria-describedby="accepter-betingelser">
             For at kunne tilmelde dig er vi nødt til at gemme og behandle dine
             personlige oplysninger. Hvis du samtykker til, at vi må gemme dine
             personlige oplysninger til dette formål, skal du sætte kryds i
@@ -299,7 +299,7 @@ import Button from "../components/Button.astro";
   justify-self: center;
   align-self: center;
   width: auto;
-  padding: 6px 12px; /* override component padding */
+  padding: 6px 12px;
   margin: 0;
   line-height: 1.2;
 }
@@ -312,55 +312,88 @@ import Button from "../components/Button.astro";
   background: rgb(255, 255, 255);
 }
 
-  /* Keep the details dropdown from pushing layout below */
-  details {
-    position: relative;
-    display: inline-block;
-  }
+  /* styler details/summary så det ligner en dropdown. undgår JS*/
 
-  details > summary {
-    cursor: pointer;
-    list-style: none;
-  }
+  details { position: relative; display: inline-block; }
+details > summary { cursor: pointer; list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
 
-  details > summary::-webkit-details-marker {
-    display: none;
-  }
+details[open] > ul {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  min-width: 12rem;
+  background: rgba(0,0,0,0.85);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  z-index: 2;
+}
 
-  details ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+details ul,
+details li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  details[open] > ul {
-    position: absolute;
-    top: calc(100% + 0.5rem);
-    left: 0;
-    width: max-content;
-    min-width: 12rem;
-    background: rgba(0, 0, 0, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 0.5rem;
-    padding: 0.75rem 1rem;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-    z-index: 2;
-  }
 
-  details[open] summary ~ * {
-    animation: fadeSlide 140ms ease-out;
-  }
 
-  @keyframes fadeSlide {
-    from {
-      opacity: 0;
-      transform: translateY(-4px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+details > summary {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+  padding: 4px 4px; 
+  border-radius: 5px;
+  border: 1px solid rgba(30,30,30,0.439);
+  background: #fff;
+  color: black;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.441);
+  cursor: pointer;
+}
+details > summary:hover {
+  border-color: rgba(255,255,255,0.35);
+  background: rgb(255, 255, 255);
+}
+
+details > summary:focus-visible {
+  outline: none;
+  border-color: #ce5501;
+  box-shadow: 0 0 0 3px rgba(206,85,1,0.35);
+}
+
+details > summary::after {
+  content: "▾";
+  font-size: 0.9rem;
+  margin-left: auto;
+  opacity: 0.85;
+  transition: transform 120ms ease;
+}
+
+details[open] > summary::after {
+  transform: rotate(-180deg);
+}
+
+/* styler checkboxe */
+
+label[for="accept-checkbox"], label[for="privatliv-checkbox"]{
+  font-size: 0.5rem;
+  line-height: 1.35;
+   display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+
+p.consent-text, p.accept-header {
+  font-size: 0.8rem;
+  line-height: 1.35;
+  margin: 0.75rem 0 1rem;
+}
+
+
 
 
 
