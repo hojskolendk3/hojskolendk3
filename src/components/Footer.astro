@@ -6,10 +6,16 @@
     color: white;
     padding: 10rem 8rem;
     font-family: 'Poppins', sans-serif;
+    display: flex; /* to kolonner */
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    gap: 4rem; 
   }
 
+  /* Venstre side */
   .footer-left {
     max-width: 600px;
+    flex: 1; 
   }
 
   .footer-left h2 {
@@ -30,14 +36,13 @@
     margin: 0 0 1rem 0;
   }
 
-  
   .footer-buttons {
     display: flex;
     gap: 1rem;
     margin-top: 1.5rem;
+    margin-bottom: 2rem;
   }
 
- 
   .footer-button {
     background-color: #000022;
     color: white;
@@ -53,10 +58,53 @@
   .footer-button:hover {
     background-color: #111144;
   }
+
+  .footer-hours {
+    display: block;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+  }
+
+  /* Højre side FAQ */
+  .footer-right {
+    max-width: 450px;
+    flex: 1; 
+  }
+
+   .footer-right h3 {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: normal; 
+  }
+
+  .faq-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .faq-list li {
+    font-weight: bold;
+    border-bottom: 1px dotted white;
+    padding: 0.75rem 0;
+  }
+
+  .faq-list li svg {
+    width: 16px;
+    height: 16px;
+  }
 </style>
 
 <footer>
+  <!-- Venstre kolonne -->
   <div class="footer-left">
+    <svg width="208" height="87" viewBox="0 0 208 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="34.5951" cy="43.2441" r="33.0951" stroke="white" stroke-width="3"/>
+      <circle cx="103.964" cy="43.2439" r="41.7439" stroke="white" stroke-width="3"/>
+      <circle cx="173.333" cy="43.2441" r="33.0951" stroke="white" stroke-width="3"/>
+    </svg>
+
     <h2>Få svar på dine spørgsmål</h2>
     <h3>Vores rejseledere sidder klar til at hjælpe dig.</h3>
     <p>
@@ -71,6 +119,52 @@
       <a href="#" class="footer-button">7027 9007</a>
       <a href="#" class="footer-button">info@hojskolendk.dk</a>
     </div>
+
+    <!-- Åbningstider -->
+    <p class="footer-hours">Mandag - Fredag kl. 10.00 - 17.00</p>
+  </div>
+
+  <!-- Højre kolonne -->
+  <div class="footer-right">
+    <h3>Ofte stillede spørgsmål</h3>
+    <ul class="faq-list">
+      <li>Hvor mange elever er der på et hold?
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.5 8.25L12 15.75L4.5 8.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+      </li>
+      <li>Hvad er gennemsnitsalderen på vores ophold?
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.5 8.25L12 15.75L4.5 8.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+      </li>
+      <li>Rejser de fleste alene?
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.5 8.25L12 15.75L4.5 8.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+      </li>
+      <li>Er der lige mange drenge og piger med på holdene?
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.5 8.25L12 15.75L4.5 8.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+      </li>
+      <li>Er undervisningen på dansk?
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.5 8.25L12 15.75L4.5 8.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+      </li>
+      <li>Er der internet de steder vi bor?
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.5 8.25L12 15.75L4.5 8.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+      </li>
+    </ul>
   </div>
 </footer>
 
