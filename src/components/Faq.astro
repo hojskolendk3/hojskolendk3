@@ -1,0 +1,81 @@
+---
+const faqId = "faq-rejser";
+
+const items = [
+  { title: "Hvor mange elever er der på et hold?", content: "Indsæt tekst" },
+  { title: "Hvad er gennemsnitsalderen på vores ophold?", content: "Indsæt tekst" },
+  { title: "Rejser de fleste alene?", content: "Indsæt tekst" },
+  { title: "Er der lige mange drenge og piger med på holdene?", content: "Indsæt tekst" },
+  { title: "Er undervisningen på dansk?", content: "Indsæt tekst" },
+  { title: "Er der internet de steder vi bor?", content: "Indsæt tekst" },
+];
+---
+<div class="accordion" id={faqId}>
+  {items.map((item, index) => (
+    <div class="accordion-item">
+      <button
+        class="accordion-header"
+        aria-expanded="false"
+        aria-controls={`${faqId}-content-${index}`}
+      >
+        <span>{item.title}</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div
+        id={`${faqId}-content-${index}`}
+        class="accordion-content"
+        hidden
+      >
+        <p>{item.content}</p>
+      </div>
+    </div>
+  ))}
+</div>
+<style>
+  .accordion-item {
+    border-bottom: 1px dashed #CE5501;
+    width: 567px;
+  }
+
+  .accordion-header {
+    width: 100%;
+    padding: 16px;
+    text-align: left;
+    background: #CE5501;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 140%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.2s ease;
+  }
+
+  .accordion-header:hover {
+    opacity: 0.9;
+  }
+
+  .accordion-content {
+    padding: 0 16px 16px;
+    animation: fadeIn 0.2s ease-in-out;
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+    font-size: 18px;
+  }
+
+  .accordion-header[aria-expanded="true"] .arrow {
+    transform: rotate(180deg);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>
