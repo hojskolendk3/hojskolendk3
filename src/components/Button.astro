@@ -1,11 +1,23 @@
 ---
-const { title, variant, class: className } = Astro.props;
+const { title, variant, class: className, href } = Astro.props;
 ---
 
-<button class={`${variant} ${className ?? ""}`.trim()}>{title}</button>
+
+{href ? (
+  <a href={href} class={`${variant} ${className ?? ""}`.trim()}>
+    {title}
+  </a>
+) : (
+  <button
+    class={`${variant} ${className ?? ""}`.trim()}
+  >
+    {title}
+  </button>
+)}
+<!-- <button class={`${variant} ${className ?? ""}`.trim()}>{title}</button> -->
 
 <style>
-  button {
+  a, button {
     color: white;
     padding: 10px 20px;
     border: none;
@@ -15,6 +27,7 @@ const { title, variant, class: className } = Astro.props;
     font-weight: 700;
     font-style: normal;
     font-size: 16px;
+    text-decoration: none;
   }
 
   .primary {

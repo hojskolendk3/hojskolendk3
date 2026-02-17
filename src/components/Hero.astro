@@ -1,5 +1,5 @@
 ---
-const { headline, byline, bgimage } = Astro.props;
+const { headline, byline, bgimage, href } = Astro.props;
 import Button from "../components/Button.astro";
 ---
 
@@ -14,7 +14,9 @@ import Button from "../components/Button.astro";
     </p>
     <div class="button_container">
       <Button title="Se rejsekalender" variant="primary" />
-      <Button title="Infomøder" variant="secondary" />
+      <Button title="Infomøder" href="/tilmeldningollie" variant="secondary" />
+      <!-- <Button title="Infomøder" variant="secondary" /> -->
+      
     </div>
   </article>
 </div>

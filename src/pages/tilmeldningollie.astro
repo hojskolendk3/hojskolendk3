@@ -4,6 +4,10 @@ import Button from "../components/Button.astro";
 import Form from "../components/Form.astro";
 import Cards from "../components/Cards.astro";
 import "../css/card.css";
+import "../css/main.css"
+import Faq from "../components/Faq.astro";
+import Accordion from "../components/Accordion.astro";
+import Infomodetider from "../components/Infomodetider.astro";
 ---
 
 <Layouts>
@@ -16,24 +20,45 @@ import "../css/card.css";
       </div>
 
       <div class="card_list">
-        <Cards
-          badge1="ONLINE INFOMØDE"
-          headline2="Kom til infomøde"
-          badge2="Kig forbi et af vores hyggelige online-infomøder – vi glæder os til at
-      møde dig!"
-        />
+        <p class="onlineinfomødebyline">ONLINE INFOMØDE</p>
+        <h2>Kom til infomøde</h2>
+        <p>Kig forbi et af vores hyggelige online-infomøder – vi glæder os til at møde dig!</p>
+        <div>
+          <Infomodetider
+         dato="06 Januar 2026"
+         tid="Kl. 18.30 - 20.00">
+         </Infomodetider>
+         <Infomodetider
+         dato="03 Februar 2026"
+         tid="Kl. 18.30 - 20.00">
+         </Infomodetider>
+         <Infomodetider
+         dato="17 Marts 2026"
+         tid="Kl. 18.30 - 20.00">
+         </Infomodetider>
+         <Infomodetider
+         dato="14 April 2026"
+         tid="Kl. 18.30 - 20.00">
+         </Infomodetider>
+         <Infomodetider
+         dato="05 Maj 2026"
+         tid="Kl. 18.30 - 20.00">
+         </Infomodetider>
+         <Infomodetider
+         dato="09 Juni 2026"
+         tid="Kl. 18.30 - 20.00">
+         </Infomodetider>
+        </div>
       </div>
     </section>
 
     <section class="cardsgrid2">
       <div class="card_list">
-        <Cards
-          badge1="Godt at vide"
-          headline2="Fem typiske bekymringer"
-          badge2="og hvordan vores elever har håndteret dem"
-        />
+         <h2>5 typiske bekymringer</h2>
+       <Accordion>
+       </Accordion>
       </div>
-      <div class="card_picture"><Cards cardstitle="Fællesskabsbillede" /></div>
+     <div class="card_picture"><Cards cardstitle="Fællesskabsbillede" /></div>
     </section>
   </section>
 
