@@ -19,9 +19,9 @@ import Button from "../components/Button.astro";
                 name="dato"
                 required
               />
-              <p id="fejlbesked" class="error-message">
+              <!-- <p id="fejlbesked" class="error-message">
                 Udfyld venligst dette felt
-              </p>
+              </p> -->
             </div>
           </div>
 
@@ -34,9 +34,9 @@ import Button from "../components/Button.astro";
               name="efternavn"
               required
             />
-            <p id="fejlbesked" class="error-message">
+            <!-- <p id="fejlbesked" class="error-message">
               Udfyld venligst dette felt
-            </p>
+            </p> -->
           </div>
 
           <div class="form-group">
@@ -48,9 +48,9 @@ import Button from "../components/Button.astro";
               name="Fornavn"
               required
             />
-            <p id="fejlbesked" class="error-message">
+            <!-- <p id="fejlbesked" class="error-message">
               Udfyld venligst dette felt
-            </p>
+            </p> -->
           </div>
 
           <div class="form-group">
@@ -89,7 +89,7 @@ import Button from "../components/Button.astro";
                     type="checkbox"
                     name="rejse"
                     value="rejse1"
-                  />rejse1</label
+                  />Det Indiske Ocean & Japan Eventyr</label
                 >
               </li>
               <li>
@@ -98,7 +98,7 @@ import Button from "../components/Button.astro";
                     type="checkbox"
                     name="rejse"
                     value="rejse2"
-                  />rejse2</label
+                  />Mellemamerika & Colombia</label
                 >
               </li>
               <li>
@@ -107,7 +107,7 @@ import Button from "../components/Button.astro";
                     type="checkbox"
                     name="rejse"
                     value="rejse3"
-                  />rejse3</label
+                  />Oceanien & Sydøstasien Rundrejse</label
                 >
               </li>
               <li>
@@ -116,7 +116,7 @@ import Button from "../components/Button.astro";
                     type="checkbox"
                     name="rejse"
                     value="rejse4"
-                  />rejse4</label
+                  />Syd- & Sydøstasien Rejsen</label
                 >
               </li>
               <li>
@@ -125,7 +125,7 @@ import Button from "../components/Button.astro";
                     type="checkbox"
                     name="rejse"
                     value="rejse5"
-                  />rejse5</label
+                  />Stillehavsparadiser & Japan</label
                 >
               </li>
             </ul>
@@ -281,7 +281,7 @@ import Button from "../components/Button.astro";
     color: white;
   }
 
-  .form-group input,
+  .form-group input:not([type="checkbox"]),
   .form-group select,
   .form-group textarea {
     width: 100%;
@@ -292,12 +292,36 @@ import Button from "../components/Button.astro";
     color: black;
     padding: 12px 14px; 
     outline: none; /
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.441);
-  }
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.441);
+}
+
+:global(input[type="checkbox"]) {
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  border: 1px solid #ce5501;
+  border-radius: 0;
+  background: #fff;
+  display: grid;
+  place-content: center;
+}
+
+:global(input[type="checkbox"]:checked::after) {
+  content: ""; /* pseudo-element for checkmark */
+  width: 0.45rem;
+  height: 0.25rem;
+  border: 2px solid #ce5501;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg);
+}
 
 :global(button.form_button) {
-  justify-self: center;
-  align-self: center;
+  justify-self: end;
+  align-self: end;
   width: auto;
   padding: 6px 12px;
   margin: 0;
@@ -314,7 +338,7 @@ import Button from "../components/Button.astro";
 
   /* styler details/summary så det ligner en dropdown. undgår JS*/
 
-  details { position: relative; display: inline-block; }
+  details { position: relative; display: block; width: 100%; }
 details > summary { cursor: pointer; list-style: none; }
 details > summary::-webkit-details-marker { display: none; }
 
@@ -322,7 +346,9 @@ details[open] > ul {
   position: absolute;
   top: calc(100% + 0.5rem);
   left: 0;
+  width: 100%;
   min-width: 12rem;
+  box-sizing: border-box;
   background: rgba(0,0,0,0.85);
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
@@ -335,6 +361,18 @@ details li {
   list-style: none;
   margin: 0;
   padding: 0;
+  width: 100%;
+}
+
+
+
+details li label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* text left, checkbox right edge */
+  gap: 0.5rem;
+  width: 100%;
+  font-size: 0.85rem;
 }
 
 
@@ -351,6 +389,7 @@ details > summary {
   color: black;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.441);
   cursor: pointer;
+
 }
 details > summary:hover {
   border-color: rgba(255,255,255,0.35);
@@ -375,7 +414,7 @@ details[open] > summary::after {
   transform: rotate(-180deg);
 }
 
-/* styler checkboxe */
+/* styler checkboxes */
 
 label[for="accept-checkbox"], label[for="privatliv-checkbox"]{
   font-size: 0.5rem;
@@ -393,8 +432,51 @@ p.consent-text, p.accept-header {
   margin: 0.75rem 0 1rem;
 }
 
+.form-column:nth-of-type(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.error-message {
+  color: #ff4d4f;
+  font-size: 0.75rem;
+  margin: 0.15rem 0 0;
+}
+
+.form-column:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+   justify-content: space-between;
+  gap: 1.25rem;
+}
 
 
+:root {
+  --checkbox-size: 1.1rem;
+}
 
+input[type="checkbox"] {
+  appearance: none;
+  box-sizing: border-box;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  flex: 0 0 auto; 
+  border: 1px solid #ce5501;  
+  border-radius: 0;           
+  background: #fff;
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "";
+  width: calc(var(--checkbox-size) * 0.45);
+  height: calc(var(--checkbox-size) * 0.25);
+  border: 2px solid #ce5501;
+   border-top: 0;
+  border-right: 0;
+   transform: rotate(-45deg);
+}
 
 </style>
