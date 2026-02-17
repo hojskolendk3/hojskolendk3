@@ -1,8 +1,8 @@
 ---
-const { cardstitle, badge1, badge2, cardstext, variant } = Astro.props;
+const { cardstitle, badge1, badge2, cardstext, variant, bgimage } = Astro.props;
 ---
 
-<article>
+<article style={`background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%), url(${bgimage});`}>
 <p class="badge1">{badge1}</p>
 <p class="badge2">{badge2}</p>
 <h4 class="cardstitle">{cardstitle}</h4>
