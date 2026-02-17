@@ -1,0 +1,142 @@
+---
+const items = [
+  {
+    title: "Vil en rejse med fælles aktiviteter og undervisning forhindre mig i at være spontan og udforske på egen hånd?",
+    content: "De fælles aktiviteter og undervisning fylder heldigvis ikke hele dagen. De fleste dage er der kun planlagte aktiviteter til midt på dagen, så der er masser af tid til at være spontan og tage på udflugter. Enten alene eller med dine nye højskole-venner. Efter afslutningen af vores ophold på hver destination, er der indlagt et par ugers 'fri leg' inden vi mødes igen på en ny destination. Så her er der rig mulighed for at være spontan!",
+  },
+  {
+    title: "Jeg er genert og oftest tilbageholdende i store grupper. Er det stadig muligt for mig at få venner?",
+    content: "De fleste elever har kriller i maven inden de tager afsted, og det er helt normalt! På trods af nervøsitet siger næsten alle vores elever, at de savner deres nye venner mere end destinationerne når de kommer tilbage til Danmark. Vi er desuden virkelig heldige at have en masse forskellige elever med på vores ture, både høj og lav, introvert og ekstrovert. Nogle kan lide at være festens midtpunkt, og andre kan bedre lide en god og stille snak på den lokale cafe. Begge dele er ok, og hos os er der heldigvis plads til det hele."
+  },
+  {
+    title: "Fysiske indtryk kan godt gøre mig overstimuleret. Er der mulighed for at kunne trække mig hvis det bliver nødvendigt?",
+    content: "Selvfølgelig kan du trække dig hvis du har behov for det. Hos os er der hverken eksamen eller mødepligt, så det er helt ok hvis du har brug for luft. Det vigtigste for os er at du får verdens fedeste rejse. På alle vores rejser har vi undervisere og rejseledere der brænder for at omfavne alle elevers behov og hjælpe når der er behov for det."
+  },
+  {
+    title: "Jeg er usikker på om mit engelske er lige så godt som de andres. Vil det forringe mine muligheder for at være en del af fællesskabet og udforske destinationerne?",
+    content: "Stærke engelsk færdigheder er ikke et krav for at tage med på rejsen! Langt de fleste elever er fra Danmark, så du er helt sikkert ikke alene. Heldigvis har vi erfarne danske rejseledere med på alle vores rejser, der kan hjælpe dig hvis engelsk bliver nødvendigt. Vi ser desuden ofte at en rejse som denne er en fantastisk mulighed for at udvikle dine færdigheder hvis du har lyst. Der er garanteret også en masse af de andre søde elever der står klar til at hjælpe hvis det bliver nødvendigt."
+  },
+  {
+    title: "Hvis jeg melder mig til et infomøde, er jeg så forpligtet til at melde mig til en rejse?",
+    content: "Nej, du er ikke forpligtet til at melde dig til en rejse. Men vi håber selvfølgelig på at du efter infomødet får lyst til at rejse sammen med os. Hvis du har spørgsmål du gerne vil stille under fire øjne, kan vi kontakte dig enten på mail eller telefon."
+  }
+];
+---
+
+<div class="accordion">
+  {items.map((item, index) => (
+    <div class="accordion-item">
+      <button 
+     class="accordion-header"
+     aria-expanded="false"
+     aria-controls={`content-${index}`}
+     >
+     <span>{item.title}</span>
+    <span class="arrow">⌄</span>
+</button>
+
+      <div 
+        id={`content-${index}`}
+        class="accordion-content"
+        hidden
+      >
+        <p>{item.content}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .accordion-item {
+    border-bottom: 1px solid #ddd;
+    width: 567px;
+  }
+
+  .accordion-header {
+    width: 100%;
+    padding: 16px;
+    text-align: left;
+    background: #f5f5f5;
+    border: none;
+    cursor: pointer;
+    font-family: Poppins; 
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 140%; 
+    transition: 0.2s ease;
+  }
+
+  .accordion-header:hover {
+    background: #eaeaea;
+  }
+
+  .accordion-content {
+    padding: 0 16px 16px;
+    animation: fadeIn 0.2s ease-in-out;
+  }
+  .accordion-item {
+  border-bottom: 1px dashed #CE5501;
+}
+.accordion-item:not(:first-child) {
+  border-bottom: 1px dashed #CE5501;
+}
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  /* PIL */
+  .accordion-header {
+  width: 100%;
+  padding: 16px;
+  text-align: left;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  color: #000;
+ font-family: Poppins;
+ font-size: 16px;
+ font-style: normal;
+ font-weight: 700;
+ line-height: 140%;
+ font-family: Poppins;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  font-size: 18px;
+}
+
+/* Når accordion er åben */
+.accordion-header[aria-expanded="true"] .arrow {
+  transform: rotate(180deg);
+}
+
+</style>
+<script>
+  const headers = document.querySelectorAll<HTMLButtonElement>(".accordion-header");
+
+  headers.forEach((header) => {
+    header.addEventListener("click", () => {
+      const expanded = header.getAttribute("aria-expanded") === "true";
+
+      // Luk alle først
+      headers.forEach((h) => {
+        h.setAttribute("aria-expanded", "false");
+        const content = h.nextElementSibling as HTMLElement;
+        if (content) content.hidden = true;
+      });
+
+      // Åbn kun hvis den ikke allerede var åben
+      if (!expanded) {
+        header.setAttribute("aria-expanded", "true");
+        const content = header.nextElementSibling as HTMLElement;
+        if (content) content.hidden = false;
+      }
+    });
+  });
+</script>
+
